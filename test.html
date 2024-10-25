@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依恋风格测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            margin: 15px 0;
+        }
+        .result {
+            display: none;
+            margin-top: 20px;
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>依恋风格测试</h1>
+
+    <div id="quiz">
+        <!-- 问题1 -->
+        <div class="question">
+            <p>1. 当我遇到困难时，我通常会选择：</p>
+            <label><input type="radio" name="q1" value="secure"> 求助于信任的人</label><br>
+            <label><input type="radio" name="q1" value="avoidant"> 尽量自己解决</label><br>
+            <label><input type="radio" name="q1" value="anxious"> 焦虑，不知所措</label><br>
+            <label><input type="radio" name="q1" value="fearful"> 感到害怕和无助</label><br>
+        </div>
+
+        <!-- 问题2 -->
+        <div class="question">
+            <p>2. 在亲密关系中，我的信任度：</p>
+            <label><input type="radio" name="q2" value="secure"> 很强，能安心依赖他人</label><br>
+            <label><input type="radio" name="q2" value="avoidant"> 较弱，害怕依赖他人</label><br>
+            <label><input type="radio" name="q2" value="anxious"> 不稳定，容易产生焦虑</label><br>
+            <label><input type="radio" name="q2" value="fearful"> 极低，觉得他人会伤害我</label><br>
+        </div>
+
+        <!-- 问题3 -->
+        <div class="question">
+            <p>3. 面对冲突时，我通常会：</p>
+            <label><input type="radio" name="q3" value="secure"> 沉着冷静，尝试沟通</label><br>
+            <label><input type="radio" name="q3" value="avoidant"> 回避冲突，逃避问题</label><br>
+            <label><input type="radio" name="q3" value="anxious"> 焦虑，反复思考</label><br>
+            <label><input type="radio" name="q3" value="fearful"> 感到恐惧和退缩</label><br>
+        </div>
+
+        <!-- 问题4 -->
+        <div class="question">
+            <p>4. 面对生活中的压力时，我会：</p>
+            <label><input type="radio" name="q4" value="secure"> 寻求支持，积极应对</label><br>
+            <label><input type="radio" name="q4" value="avoidant"> 尽量独立解决</label><br>
+            <label><input type="radio" name="q4" value="anxious"> 情绪化，变得敏感</label><br>
+            <label><input type="radio" name="q4" value="fearful"> 感到不安，想要逃避</label><br>
+        </div>
+
+        <button class="btn" onclick="showResult()">提交答案</button>
+    </div>
+
+    <div id="result" class="result"></div>
+
+    <script>
+        function showResult() {
+            let answers = { secure: 0, avoidant: 0, anxious: 0, fearful: 0 };
+            for (let i = 1; i <= 4; i++) {
+                let answer = document.querySelector('input[name="q' + i + '"]:checked');
+                if (answer) {
+                    answers[answer.value]++;
+                } else {
+                    alert("请回答所有问题！");
+                    return;
+                }
+            }
+
+            // let resultType = Object.keys(answers).reduce((a, b) => answers[a] > answers[b] ? a : b);
+            // let resultText = "";
+            // switch(resultType) {
+            //     case "secure":
+            //         resultText = "你的依恋风格是：安全型。你通常可以在依赖他人和独立之间找到平衡，能够健康地处理情感关系。";
+            //         break;
+            //     case "avoidant":
+            //         resultText = "你的依恋风格是：回避型。你倾向于保持距离，不太容易依赖他人。";
+            //         break;
+            //     case "anxious":
+            //         resultText = "你的依恋风格是：焦虑型。你在关系中容易焦虑，可能会过度担心他人的看法。";
+            //         break;
+            //     case "fearful":
+            //         resultText = "你的依恋风格是：恐惧型。你在关系中可能有较多的防御情绪，害怕被伤害。";
+            //         break;
+            // }
+            let resultType = Object.keys(answers).reduce((a, b) => answers[a] > answers[b] ? a : b);
+            let resultText = "";
+            switch(resultType) {
+                case "secure":
+                    resultText = "你的依恋风格是：回避型。你倾向于保持距离，不太容易依赖他人。";
+                    break;
+                case "avoidant":
+                    resultText = "你的依恋风格是：回避型。你倾向于保持距离，不太容易依赖他人。";
+                    break;
+                case "anxious":
+                    resultText = "你的依恋风格是：回避型。你倾向于保持距离，不太容易依赖他人。";
+                    break;
+                case "fearful":
+                    resultText = "你的依恋风格是：回避型。你倾向于保持距离，不太容易依赖他人。";
+                    break;
+            }
+
+            document.getElementById("quiz").style.display = "none";
+            let resultDiv = document.getElementById("result");
+            resultDiv.innerText = resultText;
+            resultDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
