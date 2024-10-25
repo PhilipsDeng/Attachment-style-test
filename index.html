@@ -239,16 +239,20 @@
             // 结果文本的多语言支持
             const resultText = {
                 zh: {
-                    secure: "你的依恋风格是：焦虑型。",
-                    avoidant: "你的依恋风格是：焦虑型。",
-                    anxious: "你的依恋风格是：焦虑型。",
-                    fearful: "你的依恋风格是：焦虑型。"
+                    // secure: "你的依恋风格是：焦虑型。",
+                    // avoidant: "你的依恋风格是：焦虑型。",
+                    // anxious: "你的依恋风格是：焦虑型。",
+                    // fearful: "你的依恋风格是：焦虑型。"
+                    secure: "你的依恋风格是：恐惧回避型。",
+                    avoidant: "你的依恋风格是：恐惧回避型。",
+                    anxious: "你的依恋风格是：恐惧回避型。",
+                    fearful: "你的依恋风格是：恐惧回避型。"
                 },
                 en: {
-                    secure: "Your attachment style is: Anxious.",
-                    avoidant: "Your attachment style is: Anxious.",
-                    anxious: "Your attachment style is: Anxious.",
-                    fearful: "Your attachment style is: Anxious."
+                    secure: "Your attachment style is: Fearful Avoidant.",
+                    avoidant: "Your attachment style is: Fearful Avoidant.",
+                    anxious: "Your attachment style is: Fearful Avoidant.",
+                    fearful: "Your attachment style is: Fearful Avoidant."
                 }
             };
 
@@ -258,7 +262,7 @@
             // 显示相应语言的结果文本
             document.getElementById("resultText").innerText = resultText[lang][resultType];
             // document.getElementById("resultImage").src = `${resultType}_attachment_style_chart_en.png`;
-            document.getElementById("resultImage").src = `anxious_attachment_style_chart_en.png`;
+            document.getElementById("resultImage").src = `avoidant_attachment_style_chart_en.png`;
 
 
             document.getElementById("quiz").style.display = "none";
