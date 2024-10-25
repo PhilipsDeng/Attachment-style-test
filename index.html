@@ -243,15 +243,15 @@
                     // avoidant: "你的依恋风格是：焦虑型。",
                     // anxious: "你的依恋风格是：焦虑型。",
                     // fearful: "你的依恋风格是：焦虑型。"
-                    secure: "你的依恋风格是：恐惧回避型。",
-                    avoidant: "你的依恋风格是：恐惧回避型。",
-                    anxious: "你的依恋风格是：恐惧回避型。",
+                    secure: "你的依恋风格是：安全型。",
+                    avoidant: "你的依恋风格是：疏离回避型。",
+                    anxious: "你的依恋风格是：焦虑型。",
                     fearful: "你的依恋风格是：恐惧回避型。"
                 },
                 en: {
-                    secure: "Your attachment style is: Fearful Avoidant.",
-                    avoidant: "Your attachment style is: Fearful Avoidant.",
-                    anxious: "Your attachment style is: Fearful Avoidant.",
+                    secure: "Your attachment style is: Secure.",
+                    avoidant: "Your attachment style is: Dismissive Avoidant.",
+                    anxious: "Your attachment style is:  Anxious.",
                     fearful: "Your attachment style is: Fearful Avoidant."
                 }
             };
@@ -261,8 +261,8 @@
 
             // 显示相应语言的结果文本
             document.getElementById("resultText").innerText = resultText[lang][resultType];
-            // document.getElementById("resultImage").src = `${resultType}_attachment_style_chart_en.png`;
-            document.getElementById("resultImage").src = `avoidant_attachment_style_chart_en.png`;
+            document.getElementById("resultImage").src = `${resultType}_attachment_style_chart_en.png`;
+            //document.getElementById("resultImage").src = `avoidant_attachment_style_chart_en.png`;
 
 
             document.getElementById("quiz").style.display = "none";
