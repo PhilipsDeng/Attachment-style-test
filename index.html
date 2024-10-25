@@ -229,34 +229,42 @@
                 let selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
                 if (selectedAnswer) answerCount[selectedAnswer.value]++;
                 else {
-                    alert("请回答所有问题！");
+                    alert(document.getElementById("language").value === "zh" ? "请回答所有问题！" : "Please answer all questions!");
                     return;
                 }
             }
 
-            // let resultType = Object.keys(answerCount).reduce((a, b) => answerCount[a] > answerCount[b] ? a : b);
-            // const resultText = {
-            //     secure: "你的依恋风格是：安全型。",
-            //     avoidant: "你的依恋风格是：疏离回避型。",
-            //     anxious: "你的依恋风格是：焦虑型。",
-            //     fearful: "你的依恋风格是：恐惧回避型。"
-            // };
             let resultType = Object.keys(answerCount).reduce((a, b) => answerCount[a] > answerCount[b] ? a : b);
+
+            // 结果文本的多语言支持
             const resultText = {
-                secure: "你的依恋风格是：焦虑型。",
-                avoidant: "你的依恋风格是：焦虑型。",
-                anxious: "你的依恋风格是：焦虑型。",
-                fearful: "你的依恋风格是：焦虑型。"
+                zh: {
+                    secure: "你的依恋风格是：焦虑型。",
+                    avoidant: "你的依恋风格是：焦虑型。",
+                    anxious: "你的依恋风格是：焦虑型。",
+                    fearful: "你的依恋风格是：焦虑型。"
+                },
+                en: {
+                    secure: "Your attachment style is: Anxious.",
+                    avoidant: "Your attachment style is: Anxious.",
+                    anxious: "Your attachment style is: Anxious.",
+                    fearful: "Your attachment style is: Anxious."
+                }
             };
 
-            document.getElementById("resultText").innerText = resultText[resultType];
-            // document.getElementById("resultImage").src = `${resultType}_attachment_style_chart.png`;
+            // 获取当前语言
+            const lang = document.getElementById("language").value;
+
+            // 显示相应语言的结果文本
+            document.getElementById("resultText").innerText = resultText[lang][resultType];
+            // document.getElementById("resultImage").src = `${resultType}_attachment_style_chart_en.png`;
             document.getElementById("resultImage").src = `anxious_attachment_style_chart_en.png`;
 
 
             document.getElementById("quiz").style.display = "none";
             document.getElementById("result").style.display = "block";
-        }
+            }
+
     </script>
 </body>
 </html>
