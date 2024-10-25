@@ -5,36 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>依恋风格测试</title>
     <style>
+        /* 通用样式 */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            max-width: 100%;
         }
         h1 {
-            color: #333;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-size: 2em;
         }
         .question {
-            margin: 15px 0;
+            margin: 20px auto;
+            padding: 15px;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .question p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .question label {
+            display: block;
+            font-size: 1em;
+            padding: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .question label:hover {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        .btn {
+            padding: 12px 24px;
+            font-size: 1em;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
         }
         .result {
             display: none;
-            margin-top: 20px;
-            color: #4CAF50;
-            font-size: 1.2em;
-        }
-        .btn {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin-top: 15px;
-            cursor: pointer;
+            margin-top: 30px;
+            color: #333;
+            font-size: 1.3em;
         }
         .language-select {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1em;
         }
         #resultImage {
             margin-top: 20px;
             max-width: 80%;
             height: auto;
+            border-radius: 8px;
+        }
+
+        /* 针对移动设备的优化 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .question {
+                margin: 10px auto;
+                padding: 12px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .btn {
+                padding: 10px 18px;
+                font-size: 1em;
+            }
+        }
+
+        /* 针对平板设备的优化 */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .question {
+                max-width: 80%;
+                margin: 15px auto;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2.2em;
+            }
+            .btn {
+                padding: 12px 24px;
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
@@ -54,42 +126,42 @@
         <!-- 问题列表 -->
         <div class="question" id="q1">
             <p>当我遇到困难时，我通常会选择：</p>
-            <label><input type="radio" name="q1" value="secure"> 求助于信任的人</label><br>
-            <label><input type="radio" name="q1" value="avoidant"> 尽量自己解决</label><br>
-            <label><input type="radio" name="q1" value="anxious"> 焦虑，不知所措</label><br>
-            <label><input type="radio" name="q1" value="fearful"> 感到害怕和无助</label><br>
+            <label><input type="radio" name="q1" value="secure"> 求助于信任的人</label>
+            <label><input type="radio" name="q1" value="avoidant"> 尽量自己解决</label>
+            <label><input type="radio" name="q1" value="anxious"> 焦虑，不知所措</label>
+            <label><input type="radio" name="q1" value="fearful"> 感到害怕和无助</label>
         </div>
         
         <div class="question" id="q2">
             <p>在亲密关系中，我的信任度：</p>
-            <label><input type="radio" name="q2" value="secure"> 很强，能安心依赖他人</label><br>
-            <label><input type="radio" name="q2" value="avoidant"> 较弱，害怕依赖他人</label><br>
-            <label><input type="radio" name="q2" value="anxious"> 不稳定，容易产生焦虑</label><br>
-            <label><input type="radio" name="q2" value="fearful"> 极低，觉得他人会伤害我</label><br>
+            <label><input type="radio" name="q2" value="secure"> 很强，能安心依赖他人</label>
+            <label><input type="radio" name="q2" value="avoidant"> 较弱，害怕依赖他人</label>
+            <label><input type="radio" name="q2" value="anxious"> 不稳定，容易产生焦虑</label>
+            <label><input type="radio" name="q2" value="fearful"> 极低，觉得他人会伤害我</label>
         </div>
         
         <div class="question" id="q3">
             <p>面对冲突时，我通常会：</p>
-            <label><input type="radio" name="q3" value="secure"> 沉着冷静，尝试沟通</label><br>
-            <label><input type="radio" name="q3" value="avoidant"> 回避冲突，逃避问题</label><br>
-            <label><input type="radio" name="q3" value="anxious"> 焦虑，反复思考</label><br>
-            <label><input type="radio" name="q3" value="fearful"> 感到恐惧和退缩</label><br>
+            <label><input type="radio" name="q3" value="secure"> 沉着冷静，尝试沟通</label>
+            <label><input type="radio" name="q3" value="avoidant"> 回避冲突，逃避问题</label>
+            <label><input type="radio" name="q3" value="anxious"> 焦虑，反复思考</label>
+            <label><input type="radio" name="q3" value="fearful"> 感到恐惧和退缩</label>
         </div>
 
         <div class="question" id="q4">
             <p>面对生活中的压力时，我会：</p>
-            <label><input type="radio" name="q4" value="secure"> 寻求支持，积极应对</label><br>
-            <label><input type="radio" name="q4" value="avoidant"> 尽量独立解决</label><br>
-            <label><input type="radio" name="q4" value="anxious"> 情绪化，变得敏感</label><br>
-            <label><input type="radio" name="q4" value="fearful"> 感到不安，想要逃避</label><br>
+            <label><input type="radio" name="q4" value="secure"> 寻求支持，积极应对</label>
+            <label><input type="radio" name="q4" value="avoidant"> 尽量独立解决</label>
+            <label><input type="radio" name="q4" value="anxious"> 情绪化，变得敏感</label>
+            <label><input type="radio" name="q4" value="fearful"> 感到不安，想要逃避</label>
         </div>
 
         <div class="question" id="q5">
             <p>当我对一个人产生感情时：</p>
-            <label><input type="radio" name="q5" value="secure"> 愿意表达情感并与对方分享</label><br>
-            <label><input type="radio" name="q5" value="avoidant"> 保持冷静并避免依赖</label><br>
-            <label><input type="radio" name="q5" value="anxious"> 时刻担心对方是否喜欢我</label><br>
-            <label><input type="radio" name="q5" value="fearful"> 害怕被拒绝，不敢表达</label><br>
+            <label><input type="radio" name="q5" value="secure"> 愿意表达情感并与对方分享</label>
+            <label><input type="radio" name="q5" value="avoidant"> 保持冷静并避免依赖</label>
+            <label><input type="radio" name="q5" value="anxious"> 时刻担心对方是否喜欢我</label>
+            <label><input type="radio" name="q5" value="fearful"> 害怕被拒绝，不敢表达</label>
         </div>
 
         <button class="btn" onclick="showResult()">提交答案</button>
@@ -101,6 +173,7 @@
     </div>
 
     <script>
+        // 设置语言和展示结果的脚本与原始代码保持一致
         const questions = {
             zh: [
                 "当我遇到困难时，我通常会选择：",
@@ -176,12 +249,11 @@
                 fearful: "你的依恋风格是：焦虑型。"
             };
 
-            // 显示结果内容
             document.getElementById("resultText").innerText = resultText[resultType];
             // document.getElementById("resultImage").src = `${resultType}_attachment_style_chart.png`;
             document.getElementById("resultImage").src = `anxious_attachment_style_chart.png`;
 
-            // 显示结果区块并隐藏测试问题
+
             document.getElementById("quiz").style.display = "none";
             document.getElementById("result").style.display = "block";
         }
